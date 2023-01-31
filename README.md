@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 ### Data preparation
 
-#### Warning: it is necessary to download the application_train.csv and application_test.csv files on Kaggle and store them in a data/ folder in the root.
+#### Warning: It is necessary to get the Twitter and Opensea datasets using the scraping notebook store them in a data/ folder at the root.
 
 ```bash
 python3  data_prep.py
