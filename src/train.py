@@ -16,14 +16,14 @@ def train():
     logger.setLevel(logging.INFO)
 
     # Add a handler to log messages to a file
-    file_handler = logging.FileHandler('logs/train.txt')
+    file_handler = logging.FileHandler('../logs/train.txt')
     file_handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
     # Read data
-    df = pd.read_csv('data/filtered_data.csv' , index_col=None, header=0, lineterminator='\n')
+    df = pd.read_csv('../data/filtered_data.csv' , index_col=None, header=0, lineterminator='\n')
 
     # Define the target
     X = df.drop(['price_label', 'avg_selling_price', 'sale_label'],axis=1)
@@ -79,7 +79,7 @@ def train():
 
 
     # Save the binary classifiers
-    with open("lgbm_classifier.pickle", "wb") as f:
+    with open("../models/lgbm_classifier.pickle", "wb") as f:
         pickle.dump(best_clf, f)
 
 
