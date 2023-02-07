@@ -36,3 +36,13 @@ python3 train.py
 ```bash
 python3 predict.py
 ```
+
+## API Usage
+
+### Predict endpoint
+
+```bash
+flask run
+```
+
+Then provide a json payload to the endpoint URL (cf. code in *test_api.py*)
