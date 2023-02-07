@@ -12,14 +12,14 @@ def make_predictions(X_test):
     logger.setLevel(logging.INFO)
 
     # Add a handler to log messages to a file
-    file_handler = logging.FileHandler('logs/predict.txt')
+    file_handler = logging.FileHandler('../logs/predict.txt')
     file_handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
     # Load the binary classifiers
-    with open("lgbm_classifier.pickle", "rb") as f:
+    with open("../models/lgbm_classifier.pickle", "rb") as f:
         clf = pickle.load(f)
 
     # Use the trained classifier to predict the class for each example
@@ -32,6 +32,6 @@ def make_predictions(X_test):
 
 
 if __name__ == "__main__":
-    df = pd.read_csv('data/filtered_data.csv' , index_col=None, header=0, lineterminator='\n')
+    df = pd.read_csv('../data/filtered_data.csv' , index_col=None, header=0, lineterminator='\n')
     X = df.drop(['price_label', 'avg_selling_price', 'sale_label'],axis=1)
     make_predictions(X.sample(frac=0.1))
