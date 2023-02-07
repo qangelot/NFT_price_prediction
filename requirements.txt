@@ -3,3 +3,4 @@ pandas
 lightgbm
 scikit-learn == 1.2.1
 imblearn
+Flask
