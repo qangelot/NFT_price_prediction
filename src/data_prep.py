@@ -13,17 +13,17 @@ def data_prep():
     logger.setLevel(logging.INFO)
 
     # Add a handler to log messages to a file
-    file_handler = logging.FileHandler('logs/data_prep.txt')
+    file_handler = logging.FileHandler('../logs/data_prep.txt')
     file_handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
     # read data
-    twitter = pd.read_csv('data/twitter_data.csv' , index_col=None, header=0, lineterminator='\n')
+    twitter = pd.read_csv('../data/twitter_data.csv' , index_col=None, header=0, lineterminator='\n')
     logger.info("Twitter data shape: {}".format(twitter.shape))
 
-    opensea = pd.read_csv('data/opensea_data.csv' , index_col=0, header=0, lineterminator='\n')
+    opensea = pd.read_csv('../data/opensea_data.csv' , index_col=0, header=0, lineterminator='\n')
     logger.info("Opensea data shape: {}".format(opensea.shape))
 
     # merge datasets 
@@ -44,7 +44,7 @@ def data_prep():
     logger.info("New classes distribution: {}".format(df_concatenated['price_label'].value_counts()))
 
     # saving cleaned data to csv 
-    df_concatenated.to_csv('data/filtered_data.csv', index=False)
+    df_concatenated.to_csv('../data/filtered_data.csv', index=False)
 
 
 if __name__ == "__main__":
