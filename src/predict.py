@@ -12,15 +12,22 @@ def make_predictions(X_test):
     logger.setLevel(logging.INFO)
 
     # Add a handler to log messages to a file
-    file_handler = logging.FileHandler('../logs/predict.txt')
+    try: 
+        file_handler = logging.FileHandler('../logs/predict.txt')
+    except FileNotFoundError:
+        file_handler = logging.FileHandler('logs/predict.txt')
     file_handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
     # Load the binary classifiers
-    with open("../models/lgbm_classifier.pickle", "rb") as f:
-        clf = pickle.load(f)
+    try:
+        with open("../models/lgbm_classifier.pickle", "rb") as f:
+            clf = pickle.load(f)
+    except FileNotFoundError:
+        with open("models/lgbm_classifier.pickle", "rb") as f:
+            clf = pickle.load(f)
 
     # Use the trained classifier to predict the class for each example
     final_predictions = clf.predict(X_test) 
