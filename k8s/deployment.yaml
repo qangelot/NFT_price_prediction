@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: cv-app
-        image: gcr.io/datashark/test_api:v1
+        image: gcr.io/datashark/testapi:v1
         ports:
         - containerPort: 8501
