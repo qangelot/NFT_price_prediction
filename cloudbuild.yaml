@@ -16,5 +16,5 @@ steps:
   args:
   - run
   - --filename=k8s/
-  - --location=europe-north1-a
+  - --location=europe-west1
   - --cluster=ds-kube
