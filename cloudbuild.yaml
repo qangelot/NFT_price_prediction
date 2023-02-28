@@ -17,4 +17,4 @@ steps:
   - run
   - --filename=k8s/
   - --location=europe-west1-b
-  - --cluster=ds-kube
+  - --cluster=dskube2
