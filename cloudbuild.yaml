@@ -15,6 +15,12 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=k8s/
+  - --filename=k8s/deployment.yaml
+  - --filename=k8s/service.yaml
   - --location=us-west1-b
   - --cluster=project-kube
+  - --namespace=default
+  - --image=gcr.io/$PROJECT_ID/testapi:v1
+  - --port=80
+  - --expose
+  - --labels=app=testapi
