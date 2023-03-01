@@ -10,4 +10,6 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
 
+EXPOSE 8051
+
 CMD [ "python","testapi.py" ]
