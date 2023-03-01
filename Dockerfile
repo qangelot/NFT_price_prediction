@@ -10,4 +10,6 @@ RUN ls -la $APP_HOME/
 
 RUN pip install -r requirements.txt
 
+EXPOSE 8501
+
 CMD [ "python", "run","--server.enableCORS","false","testapi.py" ]
