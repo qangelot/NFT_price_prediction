@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: imgclass
+  name: testapi
 spec:
-  replicas: 2
   selector:
     matchLabels:
-      app: nftapi
+      app: testapi
+  replicas: 1
   template:
     metadata:
       labels:
-        app: nftapi
+        app: testapi
     spec:
       containers:
-      - name: cv-app
+      - name: testapi
         image: gcr.io/data-shark-378612/testapi:v1
         ports:
-        - containerPort: 8501
+        - containerPort: 8080
