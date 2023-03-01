@@ -26,7 +26,7 @@ def train():
     df = pd.read_csv('../data/filtered_data.csv' , index_col=None, header=0, lineterminator='\n')
 
     # Define the target
-    X = df.drop(['price_label', 'avg_selling_price', 'sale_label'],axis=1)
+    X = df.drop(['price_label', 'average_price', 'avg_selling_price'],axis=1)
     y = df.price_label
 
     # Split the data into training and test sets
