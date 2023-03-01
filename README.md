@@ -46,4 +46,4 @@ flask run
 ```
 
 Then provide a json payload to the endpoint URL: "http://localhost:5000/predict" (cf. code in *test_api.py*) 
- 
+  
