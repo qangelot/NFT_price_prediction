@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: cv-app
-        image: gcr.io/datashark/testapi:v1
+        image: gcr.io/data-shark-378612/streamlit_app:v1
         ports:
         - containerPort: 8501
