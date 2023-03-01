@@ -6,6 +6,8 @@ from src.predict import make_predictions
 
 app = Flask(__name__)
 
+const port = process.env.PORT || 8082;
+
 @app.route("/predict", methods=["POST"])
 def predict():
 
