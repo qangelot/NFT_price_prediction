@@ -10,4 +10,4 @@ RUN ls -la $APP_HOME/
 
 RUN pip install -r requirements.txt
 
-CMD [ "python", "run","--server.enableCORS","false","test_api.py" ]
+CMD [ "python", "run","--server.enableCORS","false","testapi.py" ]
