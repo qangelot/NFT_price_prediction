@@ -10,4 +10,6 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
 
+ENV PORT=8083
+
 CMD [ "python","app.py" ]
