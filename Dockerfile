@@ -12,4 +12,4 @@ COPY . ./
 
 EXPOSE 8051
 
-CMD [ "python","testapi.py" ]
+CMD [ "python","app.py" ]
