@@ -1,15 +1,13 @@
 FROM python:3.7-slim
 
-RUN apt-get update
+ENV PYTHONUNBUFFERED True
+
+COPY requirements.txt ./
+
+RUN pip install -r requirements.txt
 
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
 
-RUN ls -la $APP_HOME/
-
-RUN pip install -r requirements.txt
-
-EXPOSE 8501
-
-CMD [ "python", "run","--server.enableCORS","false","testapi.py" ]
+CMD [ "python","testapi.py" ]
