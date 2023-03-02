@@ -1,7 +1,7 @@
 numpy
 pandas
 lightgbm
-scikit-learn == 1.2.1
+scikit-learn
 imblearn
 Flask
 psycopg2-binary
