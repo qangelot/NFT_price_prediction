@@ -32,6 +32,9 @@ def make_predictions(X_test):
     # Use the trained classifier to predict the class for each example
     final_predictions = clf.predict(X_test) 
 
+    # format predictions to be more user friendly
+    final_predictions = [(int(i) + 1)*20  for i in final_predictions]
+
     for i, pred in enumerate(final_predictions):
         logger.info(f"Prediction for sample {i}: {pred}")
 
