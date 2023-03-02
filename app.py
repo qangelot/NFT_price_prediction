@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
-import numpy as np
 import pandas as pd 
 from src.predict import make_predictions
 
 
 app = Flask(__name__)
 
+
+# Define the predict route
 @app.route("/predict", methods=["POST"])
 def predict():
 
@@ -15,13 +16,18 @@ def predict():
     # Convert the JSON object to a Pandas DataFrame
     data = pd.DataFrame([data_json], index=[0])
 
+    # Save the permalink for later
+    perma = data['permalink']
+    data = data.drop(['permalink'],axis=1)
+
     # Make a prediction using the loaded model
     prediction = make_predictions(data)
-    
-    # Return the prediction as a JSON response
-    return jsonify({"prediction": prediction.tolist()})
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    # Return the prediction as a JSON response
+    return jsonify({"prediction": int(prediction[0]), "permalink": str(perma.iloc[0])})
+
+if __name__ == '__main__':
+    # Run the app with Gunicorn as the web server
+    app.run(host='0.0.0.0', port=8080, workers=2)
 
     
