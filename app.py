@@ -28,6 +28,12 @@ def predict():
 
 if __name__ == '__main__':
     # Run the app with Gunicorn as the web server
-    app.run(host='0.0.0.0', port=8080, workers=2)
+    gunicorn_app = 'app:app'
+    workers = 2
+    bind_address = '0.0.0.0:8080'
+    timeout = 600
+    loglevel = 'debug'
+    command = f'gunicorn {gunicorn_app} -w {workers} -b {bind_address} --timeout {timeout} --log-level {loglevel}'
+    os.system(command)
 
     
