@@ -1,13 +1,11 @@
 FROM python:3.7-slim
 
-ENV PYTHONUNBUFFERED True
+WORKDIR /app
+COPY . /app
 
-COPY requirements.txt ./
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-RUN pip install -r requirements.txt
+EXPOSE 8080
+ENV PORT 8080
 
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-COPY . ./
-
-CMD [ "python","app.py" ]
+CMD exec gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 0 app:app
