@@ -43,9 +43,9 @@ python3 predict.py
 
 
 ```bash
-flask run
+gunicorn --bind 0.0.0.0:8080 app:app
 ```
 
-Then provide a json payload to the endpoint URL: "http://localhost:5000/predict" (cf. code in *test_api.py*) 
+Then provide a json payload to the endpoint URL: "http://localhost:8080/predict" (cf. code in *test_api.py*) 
   
   
