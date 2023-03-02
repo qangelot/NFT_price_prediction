@@ -3,6 +3,8 @@ FROM python:3.7-slim
 WORKDIR /app
 COPY . /app
 
+COPY app/models/lgbm_classifier.pickle ./app/models/
+
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 8080
