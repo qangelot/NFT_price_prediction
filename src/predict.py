@@ -23,7 +23,7 @@ def make_predictions(X_test):
 
     # Load the binary classifiers
     try:
-        with open("../models/lgbm_classifier.pickle", "rb") as f:
+        with open("./models/lgbm_classifier.pickle", "rb") as f:
             clf = pickle.load(f)
     except FileNotFoundError:
         with open("models/lgbm_classifier.pickle", "rb") as f:
