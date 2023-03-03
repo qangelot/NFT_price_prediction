@@ -3,7 +3,7 @@ from predict import make_predictions
 import pandas as pd
 
 # establish a connection to the database
-conn = psycopg2.connect(host="34.155.113.55", database="nft", user="postgres", password="test", port="5432")
+conn = psycopg2.connect(host="DBHOST", database="DBNAME", user="DBUSER", password="DBPWD", port="DBPORT")
 
 
 # Define a function to insert the prediction into the database
